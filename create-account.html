@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>DeTalk Login Page</title>
+        <meta charset="UTF-8">
+        <link href="css/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="page-menu-container">
+            <div class="menu">
+                <div class="DePaul">
+                    <img src="depaul-logo.png" alt="DePaul Logo" class="logo">
+                    DeConnect
+                </div>
+            </div>
+        </div>
+        
+        <div class="create-account-prompt-container">
+            <div class="create-account-box">
+                <h2>Create Account</h2>
+                <form id="create-account-form">
+                    <div class="input-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                
+                    <div class="input-group">
+                        <label for="second-name">Second Name:</label>
+                        <input type="text" id="second-name" name="second-name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="username">Create Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Create Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="repeat-password">Repeat Password:</label>
+                        <input type="password" id="repeat-password" name="repeat-password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="college-type">Choose your college:</label>
+                        <select name="college-type" id="college-type">
+                            <option>*Select your option*</option>
+                            <option>College of Communication</option>
+                            <option>College of Computing and Digital Mediu</option>
+                            <option>College of Education</option>
+                            <option>College of Law</option>
+                            <option>College of Liberal Arts and Social Sciences</option>
+                            <option>College of Science and Health</option>
+                            <option>Driehaus College of Business</option>
+                            <option>School for Continuing and Professional Studies</option>
+                            <option>School of Music</option>
+                            <option>The Theatre School</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Register" class="sign-in-button">
+                    <button type="button" class="back-button" id="back-to-login">Back to Login</button>
+
+
+                </form>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>2025 DeConnect. All rights reserved.</p>
+        </footer>
+
+        <script src="js/script.js"></script>
+
+    </body>
+</html>

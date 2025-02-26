@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Activity</title>
+    <link rel="stylesheet" href="css/fun.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="home.html" class="home-button">
+            <img src="fun_icon/home-button.png" alt="Home">
+        </a>
+        <h1>DeConnect</h1>
+        <p>Your gateway to building meaningful connections at DePaul University</p>
+        <div class="menu-icon" id="menuIcon">&#9776;</div> <!-- Hamburger Menu Icon -->
+        
+        <!-- Navigation Menu -->
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="NetworkingPage.html">Professional Networking</a></li>
+                <li><a href="fun.html">Fun</a></li>
+                <li><a href="collab.html">Collab</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fun">
+        <section class="content-container">
+            <h2>Find Your Next Adventure!</h2>
+
+            <!-- Form for Posting Fun Activities -->
+            <form id="postForm">
+                <textarea id="activityDescription" placeholder="What's on Your To-Do List for Fun?" required></textarea>
+                <input type="text" id="activityHashtags" placeholder="Add hashtags (#example)" required>
+                
+                <!-- Image, Link, and Post Buttons -->
+                <div class="button-row">
+                    <label for="imageUpload" class="icon-button">
+                        <img src="fun_icon/image.png" alt="Upload Image">
+                    </label>
+                    <input type="file" id="imageUpload" accept="image/*, .gif" style="display: none;">
+                    
+                    <button type="button" class="icon-button" id="addLinkButton">
+                        <img src="fun_icon/link.png" alt="Add Link">
+                    </button>
+
+                    <button type="submit" class="post-button">Post</button>
+                </div>
+            </form>
+
+            <!-- Posts Container -->
+            <div id="postsContainer"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 DeConnect. All rights reserved.</p>
+    </footer>
+
+    <script src="js/fun.js"></script>
+</body>
+</html>

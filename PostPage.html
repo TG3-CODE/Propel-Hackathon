@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css\banner.css">
+    <link rel="stylesheet" href="css\postpage.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Post an Event</title>
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-text">
+            <h1>DeConnect</h1>
+            <p>Your gateway to building meaningful connections at DePaul University</p>
+        </div>
+
+        <div class="home-button">
+            <a href="home.html">
+                <img src="icons/home.png" alt="Home" class="home-icon">
+            </a>
+        </div>
+        
+        
+        <div class="menu-container">
+            <button class="menu-button">
+                <div class="menu-lines">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </button>
+            
+            <div class="dropdown-menu">
+                <a href="NetworkingPage.html">Professional Networking</a>
+                <a href="fun.html">Fun</a>
+                <a href="collab.html">Collab</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="form-container">
+        <h1><bold>Post a New Event</bold></h1>
+        
+        <form id="event-form">
+            <input type="text" id="event-title" placeholder="Enter event title" required>
+            <input type="text" id="event-what" placeholder="What is the event about?" required>
+            
+            <div class="short-input">
+                <input type="text" id="event-where" placeholder="Where?" required>
+                <input type="text" id="event-when" placeholder="When?" required>
+            </div>
+
+            <textarea id="event-description" placeholder="Describe the event (max 200 characters)" maxlength="200" required></textarea>
+            
+            <input type="url" id="event-link" placeholder="Event registration link" required>
+            
+            <select id="event-category">
+                <option value="alumni-events">Alumni</option>
+                <option value="career-events">Career Fairs</option>
+                <option value="workshop-events">Workshops & Guest Lectures</option>
+                <option value="club-events">Club & Organization Meetings</option>
+            </select>
+            
+            <div class="button-container">
+                <button id="post-button" type="button">Save Changes</button>
+                <button id="cancel-button" type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js\PostPage.js"></script>
+    <footer class="footer">
+        <p>&copy; 2025 DeConnect All rights reserved.</p>
+    </footer>
+</body>
+</html>

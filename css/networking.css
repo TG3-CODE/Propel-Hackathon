@@ -1,0 +1,304 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif !important; ;
+    box-sizing: border-box; 
+}
+
+/* Body Styling */
+body {
+    background-color: #0a1c2e; 
+    color: #333;
+    padding-top: 120px;
+    text-align: center;
+}
+
+/* main Container */
+.main-container {
+    margin-top: 75px !important;
+    background-color: #0a1c2e; 
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    padding-top: 30px;
+    margin: 2px auto;
+    max-width: 1000px;
+    width: 80%;
+}
+
+/* Sub-container for each event section */
+.sub-container {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f7f9f6; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+details { 
+    border: none;
+    background: transparent;
+    padding-left: 8px;
+    text-align: left;
+}
+details h2{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #333;
+}
+
+details h3{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+/* Event Entry Styling */
+.event-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Manrope', sans-serif !important;
+    margin: 20px 0;
+    margin-top: 0px;
+    background-color: transparent;
+}
+
+/* Description Styling */
+.description {
+    margin-top: 5px;
+    font-size: 16px;
+    margin-left: 30px;
+    font-family: 'Manrope', sans-serif !important;
+    color: #444;
+}
+
+.event-description .description {
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif !important;
+    margin-left: 24px;
+    color: #444;
+}
+
+/* Event title */
+.event-entry h3 {
+    font-size: 18px;
+    font-weight: 600 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Event details (What, Where, When) */
+.event-entry p {
+    display: flex;
+    align-items: left;
+    font-family: 'Manrope', sans-serif !important;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Icons */
+.event-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Link styling */
+.event-entry a {
+    margin-top: 12px;
+    font-weight: bold;
+    font-family: 'Manrope', sans-serif !important;
+    color: #4267b3; 
+    text-decoration: none;
+}
+
+.event-entry a:hover {
+    text-decoration: underline;
+}
+
+/* Post Event Button */
+.post-event-btn {
+    background-color: #4267b3; 
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 150px;
+    margin-top:37.5px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 550 !important;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.post-event-btn:hover {
+    background-color: #365899; 
+}
+
+
+.edit-btn, .delete-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    margin-top: 12px !important;
+   
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+
+.edit-btn:hover {
+    background-color: #4267b3;
+}
+
+/* Hover Effect for Edit Button */
+.delete-btn:hover {
+    background-color: #4267b3; 
+}
+
+/* Icon Size */
+.edit-btn img, .delete-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Styling for the summary element */
+summary {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background: transparent;
+    transition: color 0.3s ease;
+}
+
+/* Changes color on hover */
+summary:hover {
+    color: #4267b3; 
+}
+
+/* Text Colors */
+summary, details p {
+    color: #444;
+}
+
+summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; 
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 5px;
+}
+
+/* Add a custom arrow icon */
+summary::after {
+    content: "▼";
+    font-size: 18px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when section is open */
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+details p, details a {
+    margin: 5px 0;
+}
+
+/* Event Icon Styling */
+.event-icon img{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Register Button */
+.register-btn {
+    background-color: #4267b3; 
+    color: white;
+    border: none;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 550;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.register-btn:hover {
+    background-color: #365899; 
+}
+
+.register-btn:focus {
+    outline: none;
+}
+
+.register-btn:active {
+    background-color: #2a4374; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        width: 95%;
+    }
+
+    h2 {
+        font-family:'Montserrat', sans-serif !important;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: left;
+       
+    }
+
+    h3 {
+        font-size: 18px;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: left;
+        font-family: 'Manrope', sans-serif !important;
+        padding-left: 8px;
+    }
+
+    a {
+        text-align: left;
+        padding-left: 8px;
+    }
+}

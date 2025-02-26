@@ -1,0 +1,667 @@
+body {
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #0a1e2c; 
+  color: white;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.depaul-logo {
+  height: 40px; 
+  margin-right: 15px; 
+  cursor: pointer;
+}
+/* Title Container */
+.title-container {
+  flex: 1; 
+  text-align: center; 
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  position: relative;
+  margin-left: 20px;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background-color:#4267b3; 
+  transition: 0.4s;
+}
+
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* College Selection */
+.college-select-container {
+  max-width: 1500px;
+  margin: 15px auto 0;
+  text-align: center;
+}
+
+#college-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  width: 300px;
+  background-color: #fff;
+}
+
+/* Navigation Menu */
+nav {
+  background-color: #0d2638; 
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+}
+
+nav.active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+nav ul {
+  list-style: none;
+  padding: 60px 0 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav ul li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px;
+  display: block;
+  transition: background 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Create Post Container */
+.create-post-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+#create-post-button {
+  background-color: #0a1e2c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#create-post-button:hover {
+  background-color: #143d5a;
+}
+
+/* Create Post Modal */
+#create-post-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #0a1e2c;
+}
+
+.close-modal-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.close-modal-button:hover {
+  color: #0a1e2c;
+}
+
+#create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#create-post-form select,
+#create-post-form input[type="text"],
+#create-post-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+}
+
+#create-post-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+#create-post-form button[type="submit"] {
+  background-color: #0a1e2c;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  align-self: flex-end;
+}
+
+#create-post-form button[type="submit"]:hover {
+  background-color: #143d5a;
+}
+
+/* Upload Button */
+.upload-btn {
+  align-self: flex-end;
+}
+
+.insert-button {
+  background-color: #0a1e2c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+}
+
+.insert-button:hover {
+  background-color: #143d5a;
+}
+
+/* Sections */
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.section-header {
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section h2 {
+  color: #0a1e2c;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Extender Button Styles */
+.extender-button {
+  background-color: #0a1e2c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.extender-button:hover {
+  background-color: #143d5a;
+}
+
+
+.collapsed #exam-study-groups-posts,
+.collapsed #projects-posts,
+.collapsed #programming-posts,
+.collapsed #career-guidance-posts,
+.collapsed #workshops-posts {
+  display: none;
+}
+
+/* Posts Container */
+#exam-study-groups-posts,
+#projects-posts,
+#programming-posts,
+#career-guidance-posts,
+#workshops-posts {
+  padding: 20px;
+}
+
+/* Post Styles */
+.post {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.post h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #0a1e2c;
+}
+
+.post p {
+  margin: 0 0 15px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.post-meta {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.post-menu {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.menu-button:hover {
+  color: #0a1e2c;
+}
+
+.menu-options {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 120px;
+  overflow: hidden;
+}
+
+.menu-options button img,
+.menu-options button svg {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+.icon-wrapper {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+}
+
+.menu-options button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  font-family: 'Manrope', sans-serif;
+}
+
+.menu-options button:hover {
+  background-color: #f5f5f5;
+}
+
+
+.post-menu .edit-icon,
+.post-menu img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Post Actions */
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.vote-button,
+.comments-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+}
+
+.vote-button:hover,
+.comments-button:hover {
+  background-color: #e9e9e9;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.reply-form {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.reply-form textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Manrope', sans-serif;
+  height: 40px;
+  resize: none;
+}
+
+.reply-form button {
+  background-color: #0a1e2c;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reply-form button:hover {
+  background-color: #143d5a;
+}
+
+.replies {
+  margin-top: 10px;
+}
+
+.reply {
+  background-color: #f9f9f9;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border-left: 3px solid #0a1e2c;
+}
+
+.reply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reply p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.reply small {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+  display: block;
+}
+
+.reply-menu {
+  position: relative;
+}
+
+
+.reply-menu .menu-options button img,
+.reply-menu .menu-options button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Attachments */
+.attachments {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.attachment {
+  max-width: 200px;
+}
+
+.attached-image {
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.attachment a {
+  color: #0a1e2c;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.attachment a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #e6e9f7; 
+  color: #333;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+   .title-container {
+    text-align: center;
+  }
+
+  .logo-container {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .hamburger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  header h1 {
+    font-size: 24px;
+  }
+  
+  header p {
+    font-size: 14px;
+  }
+  
+  #college-select {
+    width: 100%;
+  }
+  
+  #create-post-modal {
+    width: 95%;
+  }
+}

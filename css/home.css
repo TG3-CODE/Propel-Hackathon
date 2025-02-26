@@ -1,0 +1,235 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Header */
+header {
+    height: 160px;
+    background-color: #0d1b2a;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.home-button {
+    margin-right: 10px;
+}
+
+.home-button img {
+    width: 40px;
+    height: auto;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.tagline {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Hero Section */
+.hero {
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hero h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.hero p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+}
+
+/* Cards Section */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #f0f6f8;
+    color: #000;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    height: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    background: #e9f5ff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.join-btn {
+    display: inline-block;
+    background-color: #1a3156;
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.join-btn:hover {
+    background-color: #0d1b2a;
+}
+
+/* Accordion Section */
+.accordion-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.accordion {
+    width: 100%;
+}
+
+.accordion-item {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #f0f6f8;
+    color: #333;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.accordion-header::after {
+    content: "▼";
+    font-size: 14px;
+}
+
+.accordion-content {
+    background-color: #ffffff;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 15px 20px;
+}
+
+/* Footer */
+footer {
+    height: 160px;
+    margin-top: 50px;
+    padding: 0;
+    background-color: #f0f6f8;
+    color: #102a43;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .home-button {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}

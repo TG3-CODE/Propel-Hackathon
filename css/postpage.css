@@ -1,0 +1,183 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif !important;
+}
+
+/* Centering the page */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0a1c2e; 
+    margin: 0;
+}
+
+/* Style for form container */
+.form-container {
+    margin-top: 190px !important;
+    margin-bottom: 150px !important;
+    max-width: 550px;
+    flex: 1;
+    background-color: #f7f9f6; 
+    padding: 20px;
+    border-radius: 12px;
+    margin: 2px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #1A2B4C;
+}
+
+
+/* Center and style header */
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #0a1c2e; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 16px;
+    font-family: "Manrope", sans-serif;
+    margin-bottom: 12px;
+}
+
+/* Input fields */
+input, select, textarea {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background-color: #e8eaed; 
+    color: #1A2B4C;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+/* Placeholder color */
+input::placeholder, textarea::placeholder {
+    color: #888;
+}
+
+/* Hover effect for input fields */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border: 1px solid #4267b3; 
+    box-shadow: 0px 0px 8px rgba(66, 103, 179, 0.5);
+}
+
+
+.short-input {
+    display: flex;
+    width : 93%;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.short-input input {
+    flex: 1;
+    min-width: 120px;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 400px;
+    padding-bottom: 12px;
+    gap: 12px;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b3; 
+    color: white;
+    border: 2px solid #4267b3; 
+    padding: 10px;
+    border-radius: 8px;
+    width: 130px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 550;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #365899; 
+    border-color: #365899; 
+    transform: none;
+}
+
+#cancel-button {
+    background-color: #f7f9f6; 
+    color: #4267b3;
+    border: 2px solid #4267b3; 
+}
+
+#cancel-button:hover {
+    background-color: #e6e6e6;
+    color: #365899; 
+    border-color: #365899; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        width: 95%;
+    }
+
+    h2 {
+        font-family:'Montserrat', sans-serif !important;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: left;
+       
+    }
+
+    h3 {
+        font-size: 18px;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: left;
+        font-family: 'Manrope', sans-serif !important;
+        padding-left: 8px;
+    }
+
+    a {
+        text-align: left;
+        padding-left: 8px;
+    }
+}
+

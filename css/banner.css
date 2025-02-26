@@ -1,0 +1,154 @@
+.banner {
+    background-color: #0a1c2e; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 160px;
+    min-height: 160px;
+    max-height: 160px;
+    box-sizing: border-box;
+}
+
+
+.banner-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.banner-text h1 {
+    margin: 0;
+    color: white !important; 
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.banner-text p {
+    margin: 10px;
+    font-size: 16px;
+    color: white !important; 
+    font-weight: lighter;
+    font-family: 'Manrope', sans-serif !important;
+}
+
+/* Menu Container */
+.menu-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+
+/* Hamburger Button */
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Three White Lines */
+.menu-lines div {
+    width: 35px; 
+    height: 2px; 
+    background-color: #4267b3; 
+    border-radius: 3px;
+    margin: 4px 0;
+    margin-bottom: 6px;
+}
+
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #0a1c2e; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    width: 170px;
+    text-align: left;
+}
+
+/* Dropdown Menu Links */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.home-button {
+    position: relative; 
+    display: inline-block;
+    left: 0;
+    top: 0; 
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.home-button img {
+    width: 40px;
+    height: 40px;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.dropdown-menu a:hover {
+    background-color: #4267b3; 
+}
+
+
+.menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background-color: #e6e9f7; 
+    color: #333; 
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    height: 160px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&family=Manrope:wght@400&display=swap');
+
+/* Font Styles */
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a1c2e; /* Dark blue background matching the image */
+}
+
+/* Header */
+.header {
+    background-color: #0a1c2e; /* Dark blue matching the body */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    height: 130px;
+    position: relative;
+}
+
+.header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.header p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: -5px;
+}
+
+/* Home Button */
+.home-button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.home-button img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Hamburger Menu */
+.menu-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    display: block;
+    z-index: 1000;
+    color: #4267b3; 
+}
+
+/* Navigation Menu */
+.nav-menu {
+    position: absolute;
+    top: 130px;
+    right: 0;
+    background-color: #0a1c2e; 
+    width: 250px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 999;
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    padding: 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu ul li a:hover {
+    background-color: #4267b3; 
+}
+
+/* Main Content */
+.fun, .network, .collab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.content-container {
+    background: #f7f9f6; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.content-container h2 {
+    color: #0a1c2e; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* Post Form */
+#postForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+#postForm textarea, 
+#postForm input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #e8eaed; 
+}
+
+/* Button Row */
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Icon Buttons */
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-button:hover {
+    background-color: #4267b3; 
+    border-radius: 50%;
+}
+
+/* Post Button */
+.post-button {
+    background-color: #4267b3; 
+    color: white;
+    border: none;
+    height: 36px;
+    width: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.post-button:hover {
+    background-color: #365899; 
+}
+
+/* Posts Container */
+#postsContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Post Styles */
+.post {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+
+.like-comment {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Like & Comment Buttons */
+.like-button, .comment-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.like-button img, .comment-button img {
+    width: 16px;
+    height: 16px;
+}
+
+.like-button:hover, .comment-button:hover {
+    color: #4267b3; 
+}
+
+/* Edit & Delete Buttons */
+.edit-button, .delete-button, .send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.edit-button img, .delete-button img, .send-button img {
+    width: 16px;
+    height: 16px;
+}
+
+.edit-button:hover, .delete-button:hover, .send-button:hover {
+    background-color: #4267b3; 
+    border-radius: 50%;
+}
+
+/* Comment Actions */
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comment-actions .edit-comment-button,
+.comment-actions .delete-comment-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.comment-actions .edit-comment-button img,
+.comment-actions .delete-comment-button img {
+    width: 14px;
+    height: 14px;
+}
+
+.comment-actions .edit-comment-button:hover,
+.comment-actions .delete-comment-button:hover {
+    background-color: #4267b3; 
+    border-radius: 50%;
+}
+
+/* Post Actions */
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* Comment Section */
+.comment-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.comment-section input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #e8eaed; 
+}
+
+/* Comment Display */
+.comment-display {
+    margin-top: 10px;
+}
+
+.comment-item {
+    background-color: #f9f9f9;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.comment-item p {
+    margin: 0 0 5px 0;
+}
+
+/* Post Links */
+.post-link {
+    word-break: break-all;
+    color: #4267b3;
+    text-decoration: none;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/* Hashtags */
+.hashtag {
+    color: #4267b3; 
+    text-decoration: none;
+}
+
+.hashtag:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: #e6e9f7;
+    color: #333;
+    height: 120px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content-container {
+        width: 95%;
+    }
+    
+    #postForm {
+        padding: 0 10px;
+    }
+}
