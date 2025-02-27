@@ -31,9 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Store user credentials in localStorage
         let userData = {
+            firstName: firstName,
+            lastName: secondName,
             username: username,
             email: email,
-            password: password
+            password: password,
+            college: collegeType
         };
 
         localStorage.setItem("userData", JSON.stringify(userData));
@@ -59,6 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Check if input matches stored username or email, and if password matches
         if ((input === storedUser.username || input === storedUser.email) && password === storedUser.password) {
+            // Set the current user in localStorage
+            localStorage.setItem("currentUser", storedUser.username);
+            
             // Directly redirect to home page without alert
             window.location.href = "home.html";
         } else {
