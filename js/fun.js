@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addLinkButton = document.getElementById("addLinkButton");
     const menuIcon = document.getElementById("menuIcon");
     const navMenu = document.getElementById("navMenu");
-    const currentUser = "user123"; // Change this to your user authentication logic
+    const currentUser = localStorage.getItem("currentUser") || "anonymous"; // Get username from localStorage
 
     let link = ""; // Store the link entered by the user
 
@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             hashtags: highlightHashtags(hashtags),
             timestamp,
             likes: 0,
+            likedBy: [], // Array to track users who liked this post
             comments: [],
             userId: currentUser,
             image: imageBase64, // Store image as Base64
@@ -101,15 +102,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const postElement = document.createElement("div");
         postElement.classList.add("post");
         postElement.dataset.id = post.id;
+        
+        // Check if the current user has liked this post
+        const hasLiked = post.likedBy && post.likedBy.includes(currentUser);
+        
         postElement.innerHTML = `
             <p>${post.description}</p>
             ${post.image ? `<img src="${post.image}" class="post-image" alt="Post Image">` : ''}
             ${post.link ? `<p><a href="${post.link}" target="_blank" class="post-link">${post.link}</a></p>` : ''}
             <p><small>${post.hashtags}</small></p>
             <p><small>${post.timestamp}</small></p>
+            <p><small>Posted by ${post.userId}</small></p>
             <div class="post-actions"></div>
             <div class="like-comment">
-                <button class="like-button"><img src="fun_icon/heart.png" alt="Like"> <span>${post.likes}</span></button>
+                <button class="like-button ${hasLiked ? 'liked' : ''}">
+                    <img src="fun_icon/heart.png" alt="Like"> <span>${post.likes}</span>
+                </button>
                 <button class="comment-button"><img src="fun_icon/chat.png" alt="Comment"> <span>${post.comments.length}</span></button>
             </div>
             <div class="comment-section"></div>
@@ -134,12 +142,43 @@ document.addEventListener("DOMContentLoaded", function () {
             postActions.appendChild(deleteButton);
         }
 
-        // Like button functionality
+        // Like button functionality with toggle
         const likeButton = postElement.querySelector(".like-button");
         likeButton.addEventListener("click", function () {
-            post.likes++;
-            likeButton.innerHTML = `<img src="fun_icon/heart.png" alt="Like"> <span>${post.likes}</span>`;
-            updateStorage();
+            // Get fresh copy of posts
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            const postIndex = posts.findIndex(p => p.id == post.id);
+            
+            if (postIndex !== -1) {
+                // Initialize likedBy array if it doesn't exist
+                if (!posts[postIndex].likedBy) {
+                    posts[postIndex].likedBy = [];
+                }
+                
+                const userLikeIndex = posts[postIndex].likedBy.indexOf(currentUser);
+                
+                if (userLikeIndex === -1) {
+                    // User has not liked the post, add like
+                    posts[postIndex].likedBy.push(currentUser);
+                    posts[postIndex].likes = posts[postIndex].likedBy.length;
+                    likeButton.classList.add('liked');
+                } else {
+                    // User already liked the post, remove like
+                    posts[postIndex].likedBy.splice(userLikeIndex, 1);
+                    posts[postIndex].likes = posts[postIndex].likedBy.length;
+                    likeButton.classList.remove('liked');
+                }
+                
+                // Update like count in the UI
+                likeButton.querySelector('span').textContent = posts[postIndex].likes;
+                
+                // Save updated posts
+                localStorage.setItem("posts", JSON.stringify(posts));
+                
+                // Update the post object
+                post.likes = posts[postIndex].likes;
+                post.likedBy = posts[postIndex].likedBy;
+            }
         });
 
         // Comment section with send icon
@@ -177,8 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
             commentDisplayItem.classList.add("comment-item");
             commentDisplayItem.innerHTML = `
                 <p>${comment.text}</p>
+                <small>Commented by ${comment.userId}</small>
                 <div class="comment-actions">
-                    <button class="like-button"><img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span></button>
+                    <button class="like-button ${comment.likedBy && comment.likedBy.includes(currentUser) ? 'liked' : ''}">
+                        <img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span>
+                    </button>
                     ${comment.userId === currentUser ? `
                         <button class="edit-comment-button"><img src="fun_icon/edit.png" alt="Edit"></button>
                         <button class="delete-comment-button"><img src="fun_icon/delete.png" alt="Delete"></button>
@@ -186,11 +228,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            // Add like functionality to comment likes
+            // Add like functionality to comment likes with toggle
             const commentLikeButton = commentDisplayItem.querySelector(".like-button");
             commentLikeButton.addEventListener("click", function () {
-                comment.likes++;
-                commentLikeButton.innerHTML = `<img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span>`;
+                // Initialize likedBy array if it doesn't exist
+                if (!comment.likedBy) {
+                    comment.likedBy = [];
+                }
+                
+                const userLikeIndex = comment.likedBy.indexOf(currentUser);
+                
+                if (userLikeIndex === -1) {
+                    // User has not liked the comment, add like
+                    comment.likedBy.push(currentUser);
+                    comment.likes = comment.likedBy.length;
+                    commentLikeButton.classList.add('liked');
+                } else {
+                    // User already liked the comment, remove like
+                    comment.likedBy.splice(userLikeIndex, 1);
+                    comment.likes = comment.likedBy.length;
+                    commentLikeButton.classList.remove('liked');
+                }
+                
+                // Update UI
+                commentLikeButton.querySelector('span').textContent = comment.likes;
+                
+                // Save to localStorage
                 updateStorage();
             });
 
@@ -324,20 +387,60 @@ document.addEventListener("DOMContentLoaded", function () {
         postsContainer.querySelectorAll(".post").forEach(postElement => {
             const id = postElement.dataset.id;
             const description = postElement.querySelector("p:first-of-type").innerHTML;
-            const hashtags = postElement.querySelector("p:nth-of-type(2)") ? 
-                             postElement.querySelector("p:nth-of-type(2)").innerHTML : "";
-            const timestamp = postElement.querySelector("p:last-of-type").textContent;
-            const likes = parseInt(postElement.querySelector(".like-button span").textContent);
-            const comments = [];
             
+            // Get hashtags (may be in different positions depending on post content)
+            let hashtags = "";
+            const smallElements = postElement.querySelectorAll("p small");
+            smallElements.forEach(el => {
+                if (el.innerHTML.includes('#')) {
+                    hashtags = el.innerHTML;
+                }
+            });
+            
+            const timestamp = Array.from(smallElements).find(el => 
+                !el.innerHTML.includes('#') && !el.innerHTML.includes('Posted by')
+            )?.textContent || '';
+            
+            const likes = parseInt(postElement.querySelector(".like-button span").textContent);
+            
+            // Get liked users
+            const likeButton = postElement.querySelector(".like-button");
+            const isLiked = likeButton.classList.contains('liked');
+            
+            // Get comments
+            const comments = [];
             postElement.querySelectorAll(".comment-item").forEach(comment => {
                 const text = comment.querySelector("p").textContent;
                 const likes = parseInt(comment.querySelector(".like-button span").textContent);
-                comments.push({ text, likes, userId: currentUser });
+                const commentUserId = comment.querySelector("small").textContent.replace("Commented by ", "");
+                const likeButton = comment.querySelector(".like-button");
+                const isCommentLiked = likeButton.classList.contains('liked');
+                
+                // Create likedBy array for comment
+                let likedBy = [];
+                if (isCommentLiked && !likedBy.includes(currentUser)) {
+                    likedBy.push(currentUser);
+                }
+                
+                comments.push({ 
+                    text, 
+                    likes, 
+                    userId: commentUserId,
+                    likedBy: likedBy
+                });
             });
 
             const image = postElement.querySelector(".post-image")?.src || null;
             const link = postElement.querySelector(".post-link")?.href || null;
+            const postedBy = Array.from(smallElements).find(el => 
+                el.innerHTML.includes('Posted by')
+            )?.textContent.replace('Posted by ', '') || currentUser;
+
+            // Get likedBy array for post
+            let likedBy = [];
+            if (isLiked && !likedBy.includes(currentUser)) {
+                likedBy.push(currentUser);
+            }
 
             posts.push({
                 id,
@@ -345,8 +448,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 hashtags,
                 timestamp,
                 likes,
+                likedBy,
                 comments,
-                userId: currentUser,
+                userId: postedBy,
                 image,
                 link
             });
@@ -362,6 +466,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const comment = {
             text: commentText,
             likes: 0,
+            likedBy: [],
             userId: currentUser
         };
 
@@ -376,8 +481,11 @@ document.addEventListener("DOMContentLoaded", function () {
         commentDisplayItem.classList.add("comment-item");
         commentDisplayItem.innerHTML = `
             <p>${comment.text}</p>
+            <small>Commented by ${comment.userId}</small>
             <div class="comment-actions">
-                <button class="like-button"><img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span></button>
+                <button class="like-button">
+                    <img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span>
+                </button>
                 ${comment.userId === currentUser ? `
                     <button class="edit-comment-button"><img src="fun_icon/edit.png" alt="Edit"></button>
                     <button class="delete-comment-button"><img src="fun_icon/delete.png" alt="Delete"></button>
@@ -385,11 +493,32 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        // Add like functionality to the new comment
+        // Add like functionality to the new comment with toggle
         const commentLikeButton = commentDisplayItem.querySelector(".like-button");
         commentLikeButton.addEventListener("click", function () {
-            comment.likes++;
-            commentLikeButton.innerHTML = `<img src="fun_icon/heart.png" alt="Like"> <span>${comment.likes}</span>`;
+            // Initialize likedBy array if it doesn't exist
+            if (!comment.likedBy) {
+                comment.likedBy = [];
+            }
+            
+            const userLikeIndex = comment.likedBy.indexOf(currentUser);
+            
+            if (userLikeIndex === -1) {
+                // User has not liked the comment, add like
+                comment.likedBy.push(currentUser);
+                comment.likes = comment.likedBy.length;
+                commentLikeButton.classList.add('liked');
+            } else {
+                // User already liked the comment, remove like
+                comment.likedBy.splice(userLikeIndex, 1);
+                comment.likes = comment.likedBy.length;
+                commentLikeButton.classList.remove('liked');
+            }
+            
+            // Update UI
+            commentLikeButton.querySelector('span').textContent = comment.likes;
+            
+            // Save to localStorage
             updateStorage();
         });
 
