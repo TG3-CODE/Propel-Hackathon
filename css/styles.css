@@ -11,6 +11,7 @@ html, body {
 body {
     font-family: 'Manrope', sans-serif;
     font-weight: 400; 
+    background-color: #1b263b;
 }
 
 .footer {
@@ -18,16 +19,16 @@ body {
     color: white;
     text-align: center;
     padding: 10px 0; 
-    position: relative;
     width: 100%;
     flex-shrink: 0;
+    margin-top: auto; /* Push footer to bottom */
 }
-
 
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600; 
     font-size: 24px; 
+    margin-bottom: 20px;
 }
 
 label {
@@ -41,7 +42,7 @@ label {
     justify-content: center;
     height: 80px;
     background-color: #1b263b;
-    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .menu {
@@ -49,6 +50,7 @@ label {
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 1200px;
 }
 
 .logo {
@@ -56,13 +58,14 @@ label {
 }
 
 .DePaul {
-    margin-left: 30px;
+    margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     color: white;
-    font-size: 50px;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .login-prompt-container {
@@ -70,23 +73,23 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    padding: 20px;
     background-color: #1b263b;
 }
 
 .login-box {
     background-color: white;
-    height: 500px;
-    border: 2px solid white;
+    border: none;
     text-align: center;
     flex-direction: column;
-    width: 30vw;
+    width: 90%;
+    max-width: 400px;
     display: flex; 
     justify-content: center; 
-    padding: 20px; 
+    padding: 30px; 
     border-radius: 25px;
-    box-shadow: 0 4px 15px rgb(0, 0, 0); 
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    margin: 20px 0;
 }
 
 #login-form {
@@ -100,25 +103,39 @@ label {
 .input-group {
     display: flex; 
     flex-direction: column; 
-    width: 70%; 
+    width: 100%; 
+    max-width: 300px;
 }
 
 form label {
     font-weight: bold;
     text-align: left; 
+    margin-bottom: 5px;
+    color: #333;
 }
 
 form input {
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 10px;
     text-align: left; 
     margin-top: 5px; 
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    border-color: #4267b3;
+    box-shadow: 0 0 0 2px rgba(66, 103, 178, 0.2);
+    outline: none;
 }
 
 .sign-in-button {
-    width: 70%; 
-    padding: 10px 0; 
+    width: 100%; 
+    max-width: 300px;
+    padding: 12px 0; 
     font-size: 16px; 
     background-color: blue; 
     color: white; 
@@ -131,6 +148,7 @@ form input {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-weight: bold;
 }
 
 .sign-in-button:hover {
@@ -141,47 +159,59 @@ form input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 100%;
+    max-width: 300px;
     margin-top: 10px;
 }
 
 .options-container label {
     display: flex;
     align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.options-container input[type="checkbox"] {
+    margin-right: 5px;
+    width: auto;
 }
 
 .forgot-password {
-    color: blue;
-    text-decoration: underline;
+    color: #4267b3;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
 .forgot-password:hover {
-    text-decoration: none;
-}
-
-.options-container label, 
-.options-container .forgot-password {
-    font-size: 12px; 
+    color: #365899;
+    text-decoration: underline;
 }
 
 .signup-prompt {
-    width: 70%;
+    width: 100%;
+    max-width: 300px;
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .divider {
     flex: 1; 
-    height: .5px;
-    background-color: black;
+    height: 1px;
+    background-color: #ddd;
 }
 
 .signup-prompt span {
     margin: 0 10px; 
     font-size: 14px;
     font-weight: normal; 
+    color: #777;
+    background: white;
+    padding: 0 10px;
+    position: relative;
 }
 
 .create-account-button {
@@ -189,8 +219,9 @@ form input {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 70%;
-    padding: 10px 0;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 0;
     font-size: 16px;
     background-color: blue;
     color: white;
@@ -199,60 +230,167 @@ form input {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .create-account-button:hover {
     background-color: darkblue;
 }
 
-
-
+/* Create Account Page Styles */
 .create-account-prompt-container {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 900px;
+    padding: 20px;
     background-color: #1b263b;
+    min-height: auto; /* Allow container to adjust to content */
 }
 
 .create-account-box {
     background-color: white;
-    width: 30vw;
-    height: 700px;
-    border: 2px solid white;
+    width: 90%;
+    max-width: 450px;
+    border: none;
     text-align: center;
     flex-direction: column;
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow:  0 4px 15px rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 40px 0; /* Increased margin */
 }
 
 #create-account-form {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    gap: 20px; 
+    gap: 12px; /* Reduced gap between form elements */
     width: 100%;
+}
+
+/* College dropdown specific styles */
+.college-type {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+select[name="college-type"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    margin-bottom: 10px;
+}
+
+select:focus {
+    border-color: #4267b3;
+    box-shadow: 0 0 0 2px rgba(66, 103, 178, 0.2);
+    outline: none;
 }
 
 .back-button {
     display: block;
-    width: 40%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #ccc;
-    color: #000;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #e2e8f0;
+    color: #333;
     border: none;
     cursor: pointer;
     text-align: center;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 .back-button:hover {
-    background-color: #bbb;
+    background-color: #cbd5e0;
+}
+
+/* Ensure the form has a proper layout for create account page */
+#create-account-form .input-group {
+    margin-bottom: 5px; /* Add space between input groups */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .DePaul {
+        font-size: 24px;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .login-box, 
+    .create-account-box {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    form input,
+    select,
+    .sign-in-button,
+    .create-account-button,
+    .back-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-menu-container {
+        height: 60px;
+        padding: 15px;
+    }
+    
+    .DePaul {
+        font-size: 20px;
+    }
+    
+    .logo {
+        height: 30px;
+    }
+    
+    .options-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .login-box, 
+    .create-account-box {
+        border-radius: 15px;
+        padding: 15px;
+    }
+    
+    .input-group {
+        width: 100%;
+    }
+    
+    /* Tighten spacing on mobile */
+    #create-account-form {
+        gap: 8px;
+    }
 }
