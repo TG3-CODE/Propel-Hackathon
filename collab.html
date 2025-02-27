@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Manrope:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/collab.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <!-- Logo Container -->
+      <div class="logo-container">
+        <a href="home.html">
+          <img src="home-button.png" alt="DePaul Logo" class="depaul-logo">
+        </a>
+      </div>
+
+      <!-- Title Container (Middle) -->
+      <div class="title-container">
+        <h1>DeConnect</h1>
+        <p>Your gateway to building meaningful connections at DePaul University</p>
+      </div>
+
+      <!-- Hamburger Menu  -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- College Selection -->
+    <div class="college-select-container">
+      <label for="college-select">Select Your College:</label>
+      <select id="college-select">
+        <option value="cdm">College of Computing and Digital Media (CDM)</option>
+        <option value="business">Driehaus College of Business</option>
+        <option value="kellstadt">Kellstadt Graduate School of Business</option>
+        <option value="las">College of Liberal Arts and Social Sciences (LAS)</option>
+        <option value="communication">College of Communication</option>
+        <option value="education">College of Education</option>
+        <option value="law">College of Law</option>
+        <option value="music">School of Music</option>
+        <option value="theatre">Theatre School</option>
+        <option value="health">College of Science and Health</option>
+        <option value="new">School of Continuing and Professional Studies</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="NetworkingPage.html">Professional Networking</a></li>
+      <li><a href="fun.html">Vibe & Network</a></li>
+      <li><a href="collab.html">Collab</a></li>
+      <li><a href="index.html">Sign out</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Create Post Button -->
+    <div class="create-post-container">
+      <button id="create-post-button">
+        Create Post
+      </button>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div id="create-post-modal">
+      <div class="modal-header">
+        <h3>Create New Post</h3>
+        <button id="close-modal-button" class="close-modal-button">❌</button>
+      </div>
+      <form id="create-post-form">
+        <select id="category-select">
+          <option value="exam-study-groups">Study Groups</option>
+          <option value="projects">Projects</option>
+          <option value="programming">Programming</option>
+          <option value="career-guidance">Career Guidance</option>
+          <option value="workshops">Workshops</option>
+        </select>
+        <!-- File upload input -->
+        <label class="upload-btn">
+          <span class="insert-button">Insert File</span>
+          <input type="file" id="file-upload" style="display: none;">
+        </label>
+        <input type="text" id="post-title" placeholder="Enter a title..." required>
+        <textarea id="create-post-input" placeholder="Type your post content here..." required></textarea>
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+    <!-- Sections for Each Category -->
+    <section id="exam-study-groups" class="collapsed">
+      <div class="section-header">
+        <h2>Study Groups</h2>
+        <button class="extender-button">▼</button>
+      </div>
+      <div id="exam-study-groups-posts"></div>
+    </section>
+
+    <section id="projects" class="collapsed">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <button class="extender-button">▼</button>
+      </div>
+      <div id="projects-posts"></div>
+    </section>
+
+    <section id="programming" class="collapsed">
+      <div class="section-header">
+        <h2>Programming</h2>
+        <button class="extender-button">▼</button>
+      </div>
+      <div id="programming-posts"></div>
+    </section>
+
+    <section id="career-guidance" class="collapsed">
+      <div class="section-header">
+        <h2>Career Guidance</h2>
+        <button class="extender-button">▼</button>
+      </div>
+      <div id="career-guidance-posts"></div>
+    </section>
+
+    <section id="workshops" class="collapsed">
+      <div class="section-header">
+        <h2>Workshops</h2>
+        <button class="extender-button">▼</button>
+      </div>
+      <div id="workshops-posts"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DeConnect - DePaul University</p>
+  </footer>
+
+  <script src="js/collab.js"></script>
+</body>
+</html>
