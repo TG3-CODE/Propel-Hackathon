@@ -1,16 +1,9 @@
 // Initialize posts as an object and load from localStorage
 let posts = JSON.parse(localStorage.getItem('posts')) || {};
 let userCollege = localStorage.getItem('userCollege') || 'cdm';
-let currentUser = localStorage.getItem('currentUser') || 'anonymous'; // Default user
+let currentUser = 'anonymous'; // Default user
 
-// Prompt the user for their name if not already set
-if (!localStorage.getItem('currentUser')) {
-  const userName = prompt("Please enter your name:");
-  if (userName) {
-    localStorage.setItem('currentUser', userName);
-    currentUser = userName;
-  }
-}
+
 
 // Save selected college
 document.getElementById('college-select').addEventListener('change', function() {
