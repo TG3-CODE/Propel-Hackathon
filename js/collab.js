@@ -1,7 +1,7 @@
 // Initialize posts as an object and load from localStorage
 let posts = JSON.parse(localStorage.getItem('posts')) || {};
 let userCollege = localStorage.getItem('userCollege') || 'cdm';
-let currentUser = 'anonymous'; // Default user
+let currentUser = localStorage.getItem('currentUser') || 'anonymous'; // Get username from localStorage
 
 
 
@@ -95,7 +95,7 @@ function displayPosts(category) {
             </div>
           ` : ''}
           <div class="post-actions">
-            <button onclick="upvote('${category}', ${originalIndex})" class="vote-button">
+            <button onclick="toggleLike('${category}', ${originalIndex})" class="vote-button ${post.likedBy && post.likedBy.includes(currentUser) ? 'liked' : ''}">
               ❤️ ${post.upvotes || 0}
             </button>
             <button onclick="toggleComments(this)" class="comments-button">
@@ -199,6 +199,7 @@ document.getElementById('create-post-form').addEventListener('submit', (e) => {
       title: postTitle,
       text: postText,
       upvotes: 0,
+      likedBy: [], // Array to track users who liked the post
       college: userCollege,
       user: currentUser,
       replies: [],
@@ -233,13 +234,30 @@ document.getElementById('create-post-form').addEventListener('submit', (e) => {
   }
 });
 
-// Function to upvote a post
-function upvote(category, postIndex) {
+// Function to toggle like on a post
+function toggleLike(category, postIndex) {
   if (!posts[category] || !posts[category][postIndex]) {
     console.error("Invalid category or post index");
     return;
   }
-  posts[category][postIndex].upvotes = (posts[category][postIndex].upvotes || 0) + 1;
+  
+  // Initialize likedBy array if it doesn't exist
+  if (!posts[category][postIndex].likedBy) {
+    posts[category][postIndex].likedBy = [];
+  }
+  
+  const userIndex = posts[category][postIndex].likedBy.indexOf(currentUser);
+  
+  if (userIndex === -1) {
+    // User has not liked the post yet, add like
+    posts[category][postIndex].likedBy.push(currentUser);
+    posts[category][postIndex].upvotes = posts[category][postIndex].likedBy.length;
+  } else {
+    // User already liked the post, remove like
+    posts[category][postIndex].likedBy.splice(userIndex, 1);
+    posts[category][postIndex].upvotes = posts[category][postIndex].likedBy.length;
+  }
+  
   savePosts();
   displayPosts(category);
 }
